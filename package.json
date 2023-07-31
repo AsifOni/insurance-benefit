@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "ccg-insurance": "^0.0.0-dev.29",
     "markdown-to-jsx": "^7.2.1",
     "next": "^13.4.12",
     "react": "^18.2.0",
