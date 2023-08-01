@@ -27,14 +27,14 @@ const componentMap = {
 export default function ComposablePage({ page }) {
   return (
     <>
-      <div data-sb-object-id={page.id} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
+      <div data-sb-object-id={page?.id || '1'} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
         <Navbar />
 
         <main role="main" className="w-full flex-grow">
           <SearchBar />
 
           <div className="md:container md:mx-auto mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            {(page.sections || []).map((section, idx) => {
+            {(page?.sections || []).map((section, idx) => {
               const Component = componentMap[section.type];
 
               if (!Component) return;
