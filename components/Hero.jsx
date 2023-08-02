@@ -1,11 +1,17 @@
-import { Hero as InsuranceHero } from 'ccg-insurance';
+import { Hero as InsuranceHero } from 'ccg-rewards';
 
 export const Hero = (props) => {
   const { id, img = {}, ...restProps } = props;
   const { src, alt } = img;
   return (
     <div data-sb-object-id={id}>
-      <InsuranceHero img={src} imgAltText={alt} {...restProps} className="benefit-hero" />
+      <InsuranceHero
+        img={src}
+        imgAltText={alt}
+        {...restProps}
+        className="benefit-hero"
+        sbDataAttr={{ heading: 'heading', body: 'body' }}
+      />
     </div>
   );
 };
