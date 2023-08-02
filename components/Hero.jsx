@@ -1,4 +1,4 @@
-import { Hero as InsuranceHero } from 'ccg-rewards';
+import { Hero as InsuranceHero } from 'ccg-insurance';
 
 export const Hero = (props) => {
   const { id, img = {}, ...restProps } = props;

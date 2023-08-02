@@ -1,4 +1,4 @@
-import { Card as InsuranceCard } from 'ccg-rewards';
+import { Card as InsuranceCard } from 'ccg-insurance';
 
 import { Button } from './Button';
 
