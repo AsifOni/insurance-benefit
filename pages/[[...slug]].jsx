@@ -1,4 +1,4 @@
-import { Card } from '../components/Card.jsx';
+import { Card as InsuranceCard } from '../components/Card.jsx';
 import { Hero as InsuranceHero } from '../components/Hero.jsx';
 import { Navbar } from '../components/Navbar.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
 
 const componentMap = {
   hero: InsuranceHero,
-  insuranceCard: Card,
+  card: InsuranceCard,
   threeColumnCardSection: ThreeColumnCard,
   twoColumnSection: TwoColumnSection,
 };

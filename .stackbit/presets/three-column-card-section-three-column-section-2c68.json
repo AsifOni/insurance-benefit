@@ -1,0 +1,36 @@
+{
+    "model": "threeColumnCardSection",
+    "srcType": "contentful",
+    "srcProjectId": "9gb45kefiuk3",
+    "presets": [
+        {
+            "label": "Three Column section",
+            "locale": null,
+            "metadata": {
+                "categories": [
+                    "Three-Column-Section"
+                ],
+                "canDelete": true
+            },
+            "data": {
+                "title": "Three key ways to use CAA Rewards with your membership card",
+                "subText": null,
+                "cardData": [
+                    {
+                        "$$ref": "6Qs3MR3OB2PH0yApvYaxVk",
+                        "$$type": "card"
+                    },
+                    {
+                        "$$ref": "7jqdWLlRJpbOsFuN4RaiAE",
+                        "$$type": "card"
+                    },
+                    {
+                        "$$ref": "2IkBrEugojmjPMPY0LIw7g",
+                        "$$type": "card"
+                    }
+                ]
+            },
+            "thumbnail": "images\\three-column-card-section-three-column-section-2c68.png"
+        }
+    ]
+}
