@@ -1,7 +1,7 @@
-import { Card as InsuranceCard } from "ccg-insurance";
+import { Card as InsuranceCard } from 'ccg-insurance';
 
 export const Card = (props) => {
-  const { id, topImg, linkText, linkUrl, ...restProps } = props;
+  const { id, topImg = {}, linkText, linkUrl, ...restProps } = props;
   const { src, alt } = topImg;
 
   return (
