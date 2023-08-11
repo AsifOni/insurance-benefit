@@ -1,23 +1,62 @@
 import { Navbar } from '../components/Navbar.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { Footer } from '../components/Footer.jsx';
-import { getPageFromSlug, getPagePaths } from '../utils/content.js';
 import { ComponentRegistry } from '../utils/registry.js';
+import { getPages, getPage, getAllExperiences, getAllAudiences } from '../lib/api.js';
+import BlockRenderer from '../components/BlockRenderer.jsx';
 
-export async function getStaticPaths() {
-  const paths = await getPagePaths();
-  return { paths, fallback: false };
-}
+export const getStaticPaths = async () => {
+  const pages = await getPages();
 
-export async function getStaticProps({ params }) {
+  const paths = pages
+    ?.filter((page) => {
+      return page.fields.slug !== '/';
+    })
+    .map((page) => {
+      return {
+        params: { slug: page.fields.slug.split('/') },
+      };
+    });
+  return {
+    paths: [...paths, { params: { slug: [''] } }],
+    fallback: false,
+  };
+};
+
+
+export const getStaticProps = async ({ params }) => {
   const slug = '/' + (params?.slug ?? ['']).join('/');
-  const page = await getPageFromSlug(slug);
-  return { props: { page } };
-}
+  const [page, allExperiences, allAudiences] =
+    await Promise.all([
+      getPage({
+        slug,
+      }),
+      getAllExperiences(),
+      getAllAudiences(),
+    ]);
+  return {
+    props: {
+      page,
+      ninetailed: {
+        preview: {
+          allExperiences,
+          allAudiences,
+        },
+      },
+    },
+    revalidate: 60,
+  };
+};
+
 
 const componentMap = ComponentRegistry();
 
 export default function ComposablePage({ page }) {
+  
+  if (!page) {
+    return null;
+  }
+
   return (
     <>
       <div data-sb-object-id={page?.id || '1'} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
@@ -27,16 +66,7 @@ export default function ComposablePage({ page }) {
           <SearchBar />
 
           <div className="md:container md:mx-auto mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            {(page?.sections || []).map((section, idx) => {
-              const Component = componentMap[section.type];
-
-              if (!Component) return;
-              return (
-                <div key={`${section.type}_${idx}`} className="py-[50px]">
-                  <Component {...section} />
-                </div>
-              );
-            })}
+            <BlockRenderer blocks={page?.sections || []} />
           </div>
         </main>
       </div>
