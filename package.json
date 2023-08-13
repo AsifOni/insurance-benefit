@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ninetailed/experience.js-next": "^4.2.3",
+    "@ninetailed/experience.js-plugin-preview": "^4.2.3",
     "@ninetailed/experience.js-utils": "^4.2.3",
     "@ninetailed/experience.js-utils-contentful": "^4.2.3",
     "ccg-insurance": "^0.0.0-dev.29",
