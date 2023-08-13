@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
               );
             }
           },
-          ui: { opener: { hide: false } },
+          ui: { opener: { hide: !(process.env.NODE_ENV === 'development') } },
         }),
       ]}
       environment={process.env.NEXT_PUBLIC_NINETAILED_ENVIRONMENT ?? 'main'}
