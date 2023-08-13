@@ -4,8 +4,8 @@ import { hasExperiences, parseExperiences } from '../lib/experiences.js';
 
 const componentMap = ComponentRegistry();
 
-const ComponentRenderer = ({ block }) => {
-  const contentTypeId = block?.type;
+const ComponentRenderer = (props) => {
+  const contentTypeId = props?.type;
   const Component = componentMap[contentTypeId];
 
   if (!Component) {
@@ -15,27 +15,23 @@ const ComponentRenderer = ({ block }) => {
 
   // eslint-disable-next-line
   // @ts-ignore
-  return <Component {...block} />;
+  return <Component {...props} />;
 };
 
 const BlockRenderer = ({ blocks = [] }) => {
   return (
     <>
       {blocks.map((block, idx) => {
-        const contentTypeId = block?.type;
-        const Component = componentMap[contentTypeId];
-        if (!Component) {
-          console.warn(`${contentTypeId} can not be handled`);
-          return null;
-        }
         const parsedExperiences = parseExperiences(block);
         const isExperienceEnabled = hasExperiences(block);
+        const contentTypeId = block?.type;
+
         return (
           <div key={`${contentTypeId}_${idx}`} className="py-[50px]">
             {isExperienceEnabled ? (
-              <Experience {...block} id={block.id} component={Component} experiences={parsedExperiences} />
+              <Experience {...block} id={block.id} component={ComponentRenderer} experiences={parsedExperiences} />
             ) : (
-              <ComponentRenderer block={block} />
+              <ComponentRenderer {...block} />
             )}
           </div>
         );

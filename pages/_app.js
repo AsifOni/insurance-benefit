@@ -16,9 +16,9 @@ function MyApp({ Component, pageProps }) {
           audiences: pageProps.ninetailed?.preview.allAudiences || [],
           // Optional: Callback to handle user forwarding to the experience entry in your CMS
           onOpenExperienceEditor: (experience) => {
-            if (process.env.CONTENTFUL_SPACE_ID) {
+            if (process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID) {
               window.open(
-                `https://app.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${
+                `https://app.contentful.com/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/${
                   process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || 'master'
                 }/entries/${experience.id}`,
                 '_blank',
