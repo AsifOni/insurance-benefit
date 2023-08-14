@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer.jsx';
 import { ComponentRegistry } from '../utils/registry.js';
 import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments } from '../lib/api.js';
 import BlockRenderer from '../components/BlockRenderer.jsx';
+import { UserProfile } from '../components/Dynamic/UserProfile.jsx';
 
 export const getStaticPaths = async () => {
   const pages = await getPages();
@@ -65,6 +66,7 @@ export default function ComposablePage({ page }) {
 
           <div className="md:container md:mx-auto mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <BlockRenderer blocks={page?.sections || []} />
+            <UserProfile />
           </div>
         </main>
       </div>
