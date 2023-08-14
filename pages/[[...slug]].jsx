@@ -2,7 +2,7 @@ import { Navbar } from '../components/Navbar.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { Footer } from '../components/Footer.jsx';
 import { ComponentRegistry } from '../utils/registry.js';
-import { getPages, getPage, getAllExperiences, getAllAudiences } from '../lib/api.js';
+import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments } from '../lib/api.js';
 import BlockRenderer from '../components/BlockRenderer.jsx';
 
 export const getStaticPaths = async () => {
@@ -23,21 +23,21 @@ export const getStaticPaths = async () => {
   };
 };
 
-
 export const getStaticProps = async ({ params }) => {
   const slug = '/' + (params?.slug ?? ['']).join('/');
-  const [page, allExperiences, allAudiences] =
-    await Promise.all([
-      getPage({
-        slug,
-      }),
-      getAllExperiences(),
-      getAllAudiences(),
-    ]);
+  const [page, allExperiences, allAudiences, experiments] = await Promise.all([
+    getPage({
+      slug,
+    }),
+    getAllExperiences(),
+    getAllAudiences(),
+    getExperiments(),
+  ]);
   return {
     props: {
       page,
       ninetailed: {
+        experiments,
         preview: {
           allExperiences,
           allAudiences,
@@ -48,11 +48,9 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-
 const componentMap = ComponentRegistry();
 
 export default function ComposablePage({ page }) {
-  
   if (!page) {
     return null;
   }
