@@ -1,7 +1,6 @@
 import { Navbar } from '../components/Navbar.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { Footer } from '../components/Footer.jsx';
-import { ComponentRegistry } from '../utils/registry.js';
 import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments } from '../lib/api.js';
 import BlockRenderer from '../components/BlockRenderer.jsx';
 import { UserProfile } from '../components/Dynamic/UserProfile.jsx';
@@ -48,8 +47,6 @@ export const getStaticProps = async ({ params }) => {
     revalidate: 60,
   };
 };
-
-const componentMap = ComponentRegistry();
 
 export default function ComposablePage({ page }) {
   if (!page) {
