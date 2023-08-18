@@ -1,5 +1,7 @@
+import Script from 'next/script';
 import { NinetailedProvider } from '@ninetailed/experience.js-next';
 import { NinetailedPreviewPlugin } from '@ninetailed/experience.js-plugin-preview';
+import { NinetailedGoogleTagmanagerPlugin } from '@ninetailed/experience.js-plugin-google-tagmanager';
 import SettingsProviderWrapper from '../lib/SettingsProvider';
 import '../styles/globals.css';
 
@@ -10,6 +12,11 @@ function MyApp({ Component, pageProps }) {
       clientId={process.env.NEXT_PUBLIC_NINETAILED_CLIENT_ID}
       /* Sets needed plugins */
       plugins={[
+        new NinetailedGoogleTagmanagerPlugin({
+          template: {
+            ninetailed_audience_name: '{{ audience.name }}',
+          },
+        }),
         new NinetailedPreviewPlugin({
           // Required: Experiences from your CMS
           experiences: pageProps.ninetailed?.preview.allExperiences || [],
@@ -34,6 +41,17 @@ function MyApp({ Component, pageProps }) {
       requestTimeout={500}
     >
       <SettingsProviderWrapper config={pageProps}>
+        <Script
+          id="gtm-base"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || ''}');`,
+          }}
+        />
         <Component {...pageProps} />
       </SettingsProviderWrapper>
     </NinetailedProvider>
