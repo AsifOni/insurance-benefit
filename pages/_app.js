@@ -1,5 +1,6 @@
 import { NinetailedProvider } from '@ninetailed/experience.js-next';
 import { NinetailedPreviewPlugin } from '@ninetailed/experience.js-plugin-preview';
+import SettingsProviderWrapper from '../lib/SettingsProvider';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -32,7 +33,9 @@ function MyApp({ Component, pageProps }) {
       /* The maximum loading time until the fallback (Baseline) will be shown */
       requestTimeout={500}
     >
-      <Component {...pageProps} />
+      <SettingsProviderWrapper config={pageProps}>
+        <Component {...pageProps} />
+      </SettingsProviderWrapper>
     </NinetailedProvider>
   );
 }
