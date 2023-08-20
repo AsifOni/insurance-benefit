@@ -59,7 +59,7 @@ export default function ComposablePage({ page }) {
         <Navbar />
 
         <main role="main" className="w-full flex-grow">
-          <SearchBar />
+          {/* <SearchBar /> */}
 
           <div className="md:container md:mx-auto mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <BlockRenderer blocks={page?.sections || []} />

@@ -17,6 +17,8 @@ module.exports = {
         'caa-yellow-web-100': '#936F1F',
         'sample-red': '#DC143C',
         'sample-gray': '#E5E4E2',
+        'insurance-primary': '#124366',
+        'nav-background': '#fffbf5'
       },
     },
   },

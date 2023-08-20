@@ -5,11 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font face */
+body {
+    font-family: 'GT-America-Mono';
+}
+
 .bg-pattern {
-    background-image: url('../public/Pattern.svg');
-    background-repeat: repeat-x;
-    width: 100%;
-    height: 60px;
+border-top: #e4e4e4 1px solid;
 }
 
 .ccg-insurance-three-col-card {
