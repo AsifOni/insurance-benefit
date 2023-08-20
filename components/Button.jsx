@@ -1,4 +1,4 @@
-import { Button as InsuranceButton } from 'ccg-insurance';
+import { Button as InsuranceButton } from 'ccgx-insurance';
 
 export const Button = (props) => {
   const { label, id } = props;

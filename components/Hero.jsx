@@ -1,4 +1,4 @@
-import { Hero as InsuranceHero } from 'ccg-insurance';
+import { Hero as InsuranceHero } from 'ccgx-insurance';
 import { useNinetailed } from '@ninetailed/experience.js-next';
 
 export const Hero = (props) => {

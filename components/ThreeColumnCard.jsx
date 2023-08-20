@@ -1,4 +1,4 @@
-import { ThreeColumnCard as InsuranceThreeColumnCard } from 'ccg-insurance';
+import { ThreeColumnCard as InsuranceThreeColumnCard } from 'ccgx-insurance';
 
 export const ThreeColumnCard = (props) => {
   return (

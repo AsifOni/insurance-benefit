@@ -1,4 +1,4 @@
-import { Button } from 'ccg-insurance';
+import { Button } from 'ccgx-insurance';
 import { useState } from 'react';
 
 export const UserProfile = () => {

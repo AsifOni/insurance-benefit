@@ -1,4 +1,4 @@
-import { Button as IButton } from 'ccg-insurance';
+import { Button as IButton } from 'ccgx-insurance';
 
 export const SearchBar = () => {
   return (
