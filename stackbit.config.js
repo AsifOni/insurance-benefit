@@ -45,6 +45,11 @@ const config = {
       modelName: 'siteConfig',
     },
   ],
+  models: {
+    siteConfig: {
+      type: 'data',
+    },
+  },
 };
 
 export default config;
