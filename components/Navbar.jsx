@@ -12,9 +12,9 @@ export const Navbar = ({navItems}) => {
             <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 {navItems[0]?.fields?.navList &&
-                  navItems[0].fields.navList.map((item) => {
+                  navItems[0].fields.navList.map((item, index) => {
                     return (
-                      <li>
+                      <li key={`${item.fields.url}-${index}`}>
                         <Link href={item.fields.url}>
                           <span className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
                             {item.fields.name}
