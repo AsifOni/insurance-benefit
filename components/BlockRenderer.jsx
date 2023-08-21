@@ -27,7 +27,7 @@ const BlockRenderer = ({ blocks = [] }) => {
         const contentTypeId = block?.type;
 
         return (
-          <div key={`${contentTypeId}_${idx}`} className="py-[50px]">
+          <div key={`${contentTypeId}_${idx}`}>
             {isExperienceEnabled ? (
               <Experience {...block} id={block.id} component={ComponentRenderer} experiences={parsedExperiences} />
             ) : (
