@@ -37,6 +37,14 @@ const config = {
       })
       .filter(Boolean);
   },
+  sidebarButtons: [
+    {
+      label: 'Navigation',
+      type: 'model',
+      icon: 'tools',
+      modelName: 'siteConfig',
+    },
+  ],
 };
 
 export default config;

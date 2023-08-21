@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-export const Navbar = () => {
+export const Navbar = ({navItems}) => {
   return (
     <div className="w-fixed w-full flex-shrink flex-grow-0">
       <div className="sticky top-0 w-full h-full">
@@ -11,53 +11,18 @@ export const Navbar = () => {
             </a>
             <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-                <li>
-                <Link href="/about-us">
-                  <span className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
-                    About us
-                  </span>
-                 </Link>
-                </li>
-                <li>
-                <Link href="/our-products">
-                  <span
-                    className="block py-2 text-insurance-primary text-base font-semibold uppercase"
-                    aria-current="page"
-                  >
-                    Our Products
-                  </span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/contact-us">
-                  <span
-                    className="block py-2 text-insurance-primary text-base font-semibold uppercase"
-                    aria-current="page"
-                  >
-                    Contact Us
-                  </span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/career">
-                  <span
-                    className="block py-2 text-insurance-primary text-base font-semibold uppercase"
-                    aria-current="page"
-                  >
-                    Career
-                  </span>
-                  </Link>
-                </li>
-                <li>
-                <Link href="/our-blog">
-                  <span
-                    className="block py-2 text-insurance-primary text-base uppercase"
-                    aria-current="page"
-                  >
-                    Our Blog
-                  </span>
-                  </Link>
-                </li>
+                {navItems[0]?.fields?.navList &&
+                  navItems[0].fields.navList.map((item) => {
+                    return (
+                      <li>
+                        <Link href={item.fields.url}>
+                          <span className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
+                            {item.fields.name}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
             <div className="flex justify-between gap-2">
