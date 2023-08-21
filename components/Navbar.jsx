@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Navbar = () => {
   return (
     <div className="w-fixed w-full flex-shrink flex-grow-0">
@@ -10,45 +12,51 @@ export const Navbar = () => {
             <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                  <a href="/about-us" className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
+                <Link href="/about-us">
+                  <span className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
                     About us
-                  </a>
+                  </span>
+                 </Link>
                 </li>
                 <li>
-                  <a
-                    href="/our-products"
+                <Link href="/our-products">
+                  <span
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
                     Our Products
-                  </a>
+                  </span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/contact-us"
+                <Link href="/contact-us">
+                  <span
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
                     Contact Us
-                  </a>
+                  </span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/career"
+                <Link href="/career">
+                  <span
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
                     Career
-                  </a>
+                  </span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/our-blog"
+                <Link href="/our-blog">
+                  <span
                     className="block py-2 text-insurance-primary text-base uppercase"
                     aria-current="page"
                   >
                     Our Blog
-                  </a>
+                  </span>
+                  </Link>
                 </li>
               </ul>
             </div>
