@@ -10,13 +10,13 @@ export const Navbar = () => {
             <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                  <a href="#" className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
+                  <a href="/about-us" className="block py-2 pl-3 pr-4 text-insurance-primary text-base font-semibold uppercase">
                     About us
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/our-products"
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
@@ -25,7 +25,7 @@ export const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/contact-us"
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
@@ -34,7 +34,7 @@ export const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/career"
                     className="block py-2 text-insurance-primary text-base font-semibold uppercase"
                     aria-current="page"
                   >
@@ -43,7 +43,7 @@ export const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/our-blog"
                     className="block py-2 text-insurance-primary text-base uppercase"
                     aria-current="page"
                   >
