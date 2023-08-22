@@ -28,32 +28,31 @@ const config = {
               fontSize: ['14:26:1'],
             },
             tag: {
-              fontSize: ['14:26:1']
+              fontSize: ['14:26:1'],
             },
             heading: {
-              fontSize: ['14:26:1']
+              fontSize: ['14:26:1'],
             },
             body: {
-              fontSize: ['14:26:1']
-            }
-        
+              fontSize: ['14:26:1'],
+            },
           },
         },
-        {
-          type: 'color',
-          name: 'tagColor',
-          label: 'Tag Color',
-          group: 'design',
-          controlType: 'button-group',
-          options: [
-            { label: 'Narrow', value: 'narrow' },
-            { label: 'Wide', value: 'wide' },
-            { label: 'Full', value: 'full' },
-          ],
-        },
-        { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design', },
-        { name: 'headingColor', label: 'Heading Color', type: 'color', default: '#ffffff', group: 'design', },
-        { name: 'subheadingColor', label: 'Sub Heading Color', type: 'color', default: '#ffffff', group: 'design', }
+        // {
+        //   type: 'color',
+        //   name: 'tagColor',
+        //   label: 'Tag Color',
+        //   group: 'design',
+        //   controlType: 'button-group',
+        //   options: [
+        //     { label: 'Narrow', value: 'narrow' },
+        //     { label: 'Wide', value: 'wide' },
+        //     { label: 'Full', value: 'full' },
+        //   ],
+        // },
+        { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design' },
+        { name: 'headingColor', label: 'Heading Color', type: 'color', default: '#ffffff', group: 'design' },
+        { name: 'subheadingColor', label: 'Sub Heading Color', type: 'color', default: '#ffffff', group: 'design' },
       ],
     },
   ],
