@@ -33,6 +33,7 @@ const config = {
   ],
   modelExtensions: [
     { name: 'page', type: 'page', urlPath: '/{slug}' },
+    { name: 'siteConfig', type: 'data', urlPath: '/{slug}' },
     {
       name: 'abtesthero',
       fieldGroups: [{ name: 'design', label: 'Colors', icon: 'palette' }],
