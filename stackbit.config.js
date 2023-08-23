@@ -1,6 +1,17 @@
 import { ContentfulContentSource } from '@stackbit/cms-contentful';
 import { getLocalizedFieldForLocale } from '@stackbit/types';
 
+const allowedStyles = {
+  fontSize: ['14:26:1'],
+  textAlign: '*',
+  fontWeight: '*',
+  fontStyle: '*',
+  textDecoration: '*',
+  borderRadius: '*',
+  borderWidth: ['0:10:1'],
+  borderStyle: '*',
+};
+
 const config = {
   stackbitVersion: '~0.6.0',
   ssgName: 'nextjs',
@@ -27,15 +38,9 @@ const config = {
             self: {
               fontSize: ['14:26:1'],
             },
-            tag: {
-              fontSize: ['14:26:1'],
-            },
-            heading: {
-              fontSize: ['14:26:1'],
-            },
-            body: {
-              fontSize: ['14:26:1'],
-            },
+            tag: allowedStyles,
+            heading: allowedStyles,
+            body: allowedStyles,
           },
         },
         // {
@@ -52,7 +57,7 @@ const config = {
         // },
         { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'headingColor', label: 'Heading Color', type: 'color', default: '#ffffff', group: 'design' },
-        { name: 'subheadingColor', label: 'Sub Heading Color', type: 'color', default: '#ffffff', group: 'design' },
+        { name: 'bodyColor', label: 'Sub Heading Color', type: 'color', default: '#ffffff', group: 'design' },
       ],
     },
   ],
