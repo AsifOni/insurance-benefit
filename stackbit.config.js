@@ -10,6 +10,10 @@ const allowedStyles = {
   borderRadius: '*',
   borderWidth: ['0:10:1'],
   borderStyle: '*',
+  width: '*',
+  height: '*',
+  padding: '*',
+  margin: '*',
 };
 
 const config = {
