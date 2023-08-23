@@ -14,6 +14,9 @@ const allowedStyles = {
   height: '*',
   padding: '*',
   margin: '*',
+  flexDirection: '*',
+  justifyContent: '*',
+  alignItems: '*',
 };
 
 const config = {
