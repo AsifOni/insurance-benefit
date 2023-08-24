@@ -11,9 +11,9 @@ const allowedStyles = {
   borderWidth: ['0:10:1'],
   borderStyle: '*',
   borderColor: [
-    { value: 'border-primary', label: 'Primary color', color: '#c81faf' },
-    { value: 'border-secondary', label: 'Secondary color', color: '#daf851' },
-    { value: 'border-dark', label: 'Dark color', color: '#444444' },
+    { value: '#c81faf', label: 'Primary color', color: '#c81faf' },
+    { value: '#daf851', label: 'Secondary color', color: '#daf851' },
+    { value: '#444444', label: 'Dark color', color: '#444444' },
   ],
   width: '*',
   height: '*',

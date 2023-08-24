@@ -15,34 +15,35 @@ export const Hero = ({
   bodyColor,
 }) => {
   // const fontSizeEditor = fontSize?.self?.fontSize;
-  console.log('styles', styles);
-  console.log('subtitle', subtitle);
+  // console.log('styles', styles);
+  // console.log('subtitle', subtitle);
 
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   const applyStyles = (styles) => {
+    const styleMappings = {
+      col: 'column',
+      'col-reverse': 'column-reverse',
+    };
+
     const divStyles = {};
 
     for (const key in styles) {
-      if (typeof styles[key] === 'object') {
-        for (const subKey in styles[key]) {
-          divStyles[`${key}${capitalizeFirstLetter(subKey)}`] = styles[key][subKey] + 'px';
+      const value = styles[key];
+      if (typeof value === 'object') {
+        for (const subKey in value) {
+          divStyles[`${key}${capitalizeFirstLetter(subKey)}`] = value[subKey] + 'px';
         }
       } else {
-        if (styles[key] === 'col') {
-          divStyles[key] = 'column';
-        } else if (styles[key] === 'col-reverse') {
-          divStyles[key] = 'column-reverse';
-        } else {
-          divStyles[key] = styles[key];
-        }
+        divStyles[key] = styleMappings[value] || value;
       }
     }
 
     return divStyles;
   };
+
   return (
     <section className="flex items-center justify-center bg-white" data-sb-object-id={id}>
       <div className="flex gap-8" style={{ ...applyStyles(styles.self) }}>
