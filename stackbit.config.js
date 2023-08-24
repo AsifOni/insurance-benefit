@@ -2,7 +2,7 @@ import { ContentfulContentSource } from '@stackbit/cms-contentful';
 import { getLocalizedFieldForLocale } from '@stackbit/types';
 
 const allowedStyles = {
-  fontSize: ['14:26:1'],
+  fontSize: ['14:56:1'],
   textAlign: '*',
   fontWeight: '*',
   fontStyle: '*',

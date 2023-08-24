@@ -28,7 +28,7 @@ export const Hero = ({
     for (const key in styles) {
       if (typeof styles[key] === 'object') {
         for (const subKey in styles[key]) {
-          divStyles[`${key}${capitalizeFirstLetter(subKey)}`] = styles[key][subKey];
+          divStyles[`${key}${capitalizeFirstLetter(subKey)}`] = styles[key][subKey] + 'px';
         }
       } else {
         if (styles[key] === 'col') {
@@ -43,7 +43,6 @@ export const Hero = ({
 
     return divStyles;
   };
-
   return (
     <section className="flex items-center justify-center bg-white" data-sb-object-id={id}>
       <div className="flex gap-8" style={{ ...applyStyles(styles.self) }}>
