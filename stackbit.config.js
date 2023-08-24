@@ -10,6 +10,11 @@ const allowedStyles = {
   borderRadius: '*',
   borderWidth: ['0:10:1'],
   borderStyle: '*',
+  borderColor: [
+    { value: 'border-primary', label: 'Primary color', color: '#c81faf' },
+    { value: 'border-secondary', label: 'Secondary color', color: '#daf851' },
+    { value: 'border-dark', label: 'Dark color', color: '#444444' },
+  ],
   width: '*',
   height: '*',
   padding: '*',
@@ -44,7 +49,9 @@ const config = {
           description: 'The styles field is controlled by Stackbit editor',
           styles: {
             self: {
-              fontSize: ['14:26:1'],
+              flexDirection: '*',
+              justifyContent: '*',
+              alignItems: '*',
             },
             tag: allowedStyles,
             heading: allowedStyles,
