@@ -10,6 +10,7 @@ export const Hero = ({
   styles,
   img,
   subtitle,
+  backgroundColor,
   tagColor,
   headingColor,
   bodyColor,
@@ -48,7 +49,7 @@ export const Hero = ({
     <section className="flex items-center justify-center bg-white" data-sb-object-id={id}>
       <div className="flex gap-8" style={{ ...applyStyles(styles.self) }}>
         {img && <img src={img.src} alt={img.alt} className="w-[561px] h-[541px] object-cover" />}
-        <div className="mx-auto max-w-[43rem]">
+        <div className="mx-auto max-w-[43rem] p-4" style={{ backgroundColor, color: bodyColor }}>
           <div className="text-center">
             <p
               className="text-lg font-medium leading-8 text-indigo-600/95"
