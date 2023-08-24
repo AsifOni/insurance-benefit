@@ -70,6 +70,7 @@ const config = {
         //     { label: 'Full', value: 'full' },
         //   ],
         // },
+        { name: 'image', type: 'image', source: 'asset-source-name' },
         { name: 'backgroundColor', label: 'Background Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'headingColor', label: 'Heading Color', type: 'color', default: '#ffffff', group: 'design' },

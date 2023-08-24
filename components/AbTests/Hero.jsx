@@ -48,7 +48,9 @@ export const Hero = ({
   return (
     <section className="flex items-center justify-center bg-white" data-sb-object-id={id}>
       <div className="flex gap-8" style={{ ...applyStyles(styles.self) }}>
-        {img && <img src={img.src} alt={img.alt} className="w-[561px] h-[541px] object-cover" />}
+        {img && (
+          <img src={img.src} alt={img.alt} className="w-[561px] h-[541px] object-cover" data-sb-field-path=".img" />
+        )}
         <div className="mx-auto max-w-[43rem] p-4" style={{ backgroundColor, color: bodyColor }}>
           <div className="text-center">
             <p
