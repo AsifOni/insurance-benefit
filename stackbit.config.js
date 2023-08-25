@@ -58,18 +58,6 @@ const config = {
             body: allowedStyles,
           },
         },
-        // {
-        //   type: 'color',
-        //   name: 'tagColor',
-        //   label: 'Tag Color',
-        //   group: 'design',
-        //   controlType: 'button-group',
-        //   options: [
-        //     { label: 'Narrow', value: 'narrow' },
-        //     { label: 'Wide', value: 'wide' },
-        //     { label: 'Full', value: 'full' },
-        //   ],
-        // },
         { name: 'image', type: 'image', source: 'asset-source-name' },
         { name: 'backgroundColor', label: 'Background Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design' },

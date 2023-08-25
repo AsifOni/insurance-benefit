@@ -1,3 +1,5 @@
+import { Button } from '../Button';
+import Link from 'next/link';
 export const Hero = ({
   id,
   tag,
@@ -14,6 +16,7 @@ export const Hero = ({
   tagColor,
   headingColor,
   bodyColor,
+  ctaContainer,
 }) => {
   // const fontSizeEditor = fontSize?.self?.fontSize;
   // console.log('styles', styles);
@@ -74,22 +77,43 @@ export const Hero = ({
             >
               {body}
             </p>
+
+            <div className="flex mt-6 gap-2">
+            {ctaContainer?.map((btnProps, idx) => {
+              const { url, id, label, variant } = btnProps;
+              const btnCustomStyle =
+                variant === 'primary'
+                  ? 'transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700'
+                  : 'transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50';
+
+              return (
+                <div key={`ctaContainer_${idx}`} data-sb-object-id={id}>
+                  <a data-sb-field-path="label" href={url} className={btnCustomStyle} style={...applyStyles(styles.label)}>
+                    {label}
+                  </a>
+                </div>
+              );
+            })}
+          </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <a
-              href={href1}
-              className="transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
-            >
-              {ctaLabel1}
-            </a>
-            <a
-              href={href2}
-              className="transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50"
-            >
-              {ctaLabel2}
-            </a>
-          </div>
+          {/* <div className="flex mt-6 gap-2">
+            {ctaContainer?.map((btnProps, idx) => {
+              const { url, id, label, variant } = btnProps;
+              const btnCustomStyle =
+                variant === 'primary'
+                  ? 'transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700'
+                  : 'transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50';
+
+              return (
+                <div key={`ctaContainer_${idx}`} data-sb-object-id={id}>
+                  <a data-sb-field-path="label" href={url} className={btnCustomStyle} style={...applyStyles(styles.label)}>
+                    {label}
+                  </a>
+                </div>
+              );
+            })}
+          </div> */}
         </div>
       </div>
     </section>

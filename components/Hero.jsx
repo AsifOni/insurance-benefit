@@ -18,7 +18,12 @@ export const Hero = (props) => {
         className="benefit-hero"
         sbDataAttr={{ heading: 'heading', body: 'body' }}
       />
-      <button onClick={() => handleEvent()}>Event test</button>
+      <button
+        className="transform rounded-md bg-indigo-600/95 m-5 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
+        onClick={() => handleEvent()}
+      >
+        Custom Event test
+      </button>
     </div>
   );
 };
