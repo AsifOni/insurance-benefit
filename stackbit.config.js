@@ -40,6 +40,11 @@ const config = {
     { name: 'page', type: 'page', urlPath: '/{slug}' },
     { name: 'siteConfig', type: 'data' },
     {
+      name: 'hero',
+      fieldGroups: [{ name: 'clickEvent', label: 'Event Personalization', icon: 'gear' }],
+      fields: [{ name: 'personalization', label: 'Click Event', group: 'clickEvent' }],
+    },
+    {
       name: 'abtesthero',
       fieldGroups: [
         { name: 'design', label: 'Colors', icon: 'palette' },
