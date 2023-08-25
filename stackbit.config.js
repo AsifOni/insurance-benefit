@@ -38,10 +38,13 @@ const config = {
   ],
   modelExtensions: [
     { name: 'page', type: 'page', urlPath: '/{slug}' },
-    { name: 'siteConfig', type: 'data', urlPath: '/{slug}' },
+    { name: 'siteConfig', type: 'data' },
     {
       name: 'abtesthero',
-      fieldGroups: [{ name: 'design', label: 'Colors', icon: 'palette' }],
+      fieldGroups: [
+        { name: 'design', label: 'Colors', icon: 'palette' },
+        { name: 'buttonGroup', label: 'Buttons', icon: 'list-check' },
+      ],
       fields: [
         {
           name: 'styles',
@@ -63,6 +66,7 @@ const config = {
         { name: 'tagColor', label: 'Tag Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'headingColor', label: 'Heading Color', type: 'color', default: '#ffffff', group: 'design' },
         { name: 'bodyColor', label: 'Body Color', type: 'color', default: '#ffffff', group: 'design' },
+        { name: 'ctaContainer', label: 'Buttons', group: 'buttonGroup' },
       ],
     },
   ],

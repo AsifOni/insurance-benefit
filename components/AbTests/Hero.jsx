@@ -18,9 +18,6 @@ export const Hero = ({
   bodyColor,
   ctaContainer,
 }) => {
-  // const fontSizeEditor = fontSize?.self?.fontSize;
-  // console.log('styles', styles);
-  // console.log('subtitle', subtitle);
 
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -48,13 +45,19 @@ export const Hero = ({
     return divStyles;
   };
 
+  const buttonStyle = {
+    'primary': 'transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700',
+    'secondary': 'transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50',
+    'tertiary': 'transform rounded-md border border-white px-5 py-3 font-medium text-white transition-colors hover:bg-slate-50'
+  }
+
   return (
     <section className="flex items-center justify-center bg-white" data-sb-object-id={id}>
-      <div className="flex gap-8" style={{ ...applyStyles(styles.self) }}>
+      <div className="flex" style={{ ...applyStyles(styles.self) }}>
         {img && (
           <img src={img.src} alt={img.alt} className="w-[561px] h-[541px] object-cover" data-sb-field-path=".img" />
         )}
-        <div className="mx-auto max-w-[43rem] p-4" style={{ backgroundColor, color: bodyColor }}>
+        <div className="mx-auto max-w-[43rem] p-8" style={{ backgroundColor, color: bodyColor }}>
           <div className="text-center">
             <p
               className="text-lg font-medium leading-8 text-indigo-600/95"
@@ -81,10 +84,7 @@ export const Hero = ({
             <div className="flex mt-6 gap-2">
             {ctaContainer?.map((btnProps, idx) => {
               const { url, id, label, variant } = btnProps;
-              const btnCustomStyle =
-                variant === 'primary'
-                  ? 'transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700'
-                  : 'transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50';
+              const btnCustomStyle = buttonStyle[variant];
 
               return (
                 <div key={`ctaContainer_${idx}`} data-sb-object-id={id}>
