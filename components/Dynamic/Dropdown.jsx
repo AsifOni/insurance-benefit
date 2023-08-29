@@ -4,7 +4,7 @@ const DropDown = () => {
   const { identify } = useNinetailed();
   const handleChange = async (event) => {
     if (event.target.value !== '') {
-      const traits = { traits: { 'currentPackage': event.target.value } };
+      const traits = { 'currentPackage': event.target.value };
       await identify('', traits);
     }
   };
