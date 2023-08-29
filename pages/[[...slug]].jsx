@@ -62,7 +62,7 @@ export default function ComposablePage({ page, navItems }) {
 
         <main role="main" className="w-full flex-grow">
             <BlockRenderer blocks={page?.sections || []} />
-            <UserProfile />
+            {/* <UserProfile /> */}
         </main>
       </div>
       <Footer />

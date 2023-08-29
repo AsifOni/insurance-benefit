@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DropDown from './Dynamic/Dropdown';
 
 export const Navbar = ({navItems}) => {
   return (
@@ -33,6 +34,7 @@ export const Navbar = ({navItems}) => {
                   <img src="icon-map-pin.svg" className="w-15 h-15 mr-3" alt="" role="presentation" />
                 </a>
               </div> */}
+              <DropDown />
             </div>
           </div>
         </nav>
