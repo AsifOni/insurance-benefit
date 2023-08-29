@@ -7,7 +7,7 @@ export const Navbar = ({navItems}) => {
       <div className="sticky top-0 w-full h-full">
         <nav className="bg-nav-background w-full z-20 top-0 left-0 border-b border-gray-200">
           <div className="flex flex-wrap items-center justify-between p-4">
-            <a href="https://www.caasco.com//" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img src="logo-image.png" className="mr-3" alt="CAA Logo" role="presentation" />
             </a>
             <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
