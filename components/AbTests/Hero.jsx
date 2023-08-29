@@ -81,7 +81,7 @@ export const Hero = ({
 
               return (
                 <div key={`ctaContainer_${idx}`} data-sb-object-id={id}>
-                  <a data-sb-field-path="label" href={url} className={btnCustomStyle} style={...applyStyles(styles?.label)}>
+                  <a data-sb-field-path="label" href={url} className={btnCustomStyle} style={{...applyStyles(styles?.label)}}>
                     {label}
                   </a>
                 </div>
