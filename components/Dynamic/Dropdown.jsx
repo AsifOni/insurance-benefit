@@ -5,7 +5,7 @@ const DropDown = () => {
   const handleChange = async (event) => {
     if (event.target.value !== '') {
       const traits = { traits: { 'currentPackage': event.target.value } };
-      await identify(traits);
+      await identify('', traits);
     }
   };
 
