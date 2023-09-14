@@ -6,6 +6,6 @@
   command = "npm run build"
 
 [context.master]
-  command = "npm run build"
-  environment = { NODE_ENV = "development" }
+  command = "npm run build && echo $APP_ENV"
+  environment = { APP_ENV = "development" }
   publish = ".next"
