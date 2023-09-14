@@ -6,7 +6,7 @@ import BlockRenderer from '../components/BlockRenderer.jsx';
 import { UserProfile } from '../components/Dynamic/UserProfile.jsx';
 
 export const getStaticPaths = async () => {
-  const pages = await getPages();
+  const pages = await getPages({ preview: false });
 
   const paths = pages
     ?.filter((page) => {
@@ -23,16 +23,18 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async (context) => {
+  const { params, preview } = context;
   const slug = '/' + (params?.slug ?? ['']).join('/');
   const [page, allExperiences, allAudiences, experiments, navItems] = await Promise.all([
     getPage({
+      preview,
       slug,
-    }),
+    }),    
+    getExperiments({ preview }),
+    getNavItems(),
     getAllExperiences(),
     getAllAudiences(),
-    getExperiments(),
-    getNavItems()
   ]);
   return {
     props: {
@@ -44,7 +46,7 @@ export const getStaticProps = async ({ params }) => {
           allAudiences,
         },
       },
-      navItems
+      navItems,
     },
     revalidate: 60,
   };
@@ -61,8 +63,8 @@ export default function ComposablePage({ page, navItems }) {
         <Navbar navItems={navItems} />
 
         <main role="main" className="w-full flex-grow">
-            <BlockRenderer blocks={page?.sections || []} />
-            {/* <UserProfile /> */}
+          <BlockRenderer blocks={page?.sections || []} />
+          {/* <UserProfile /> */}
         </main>
       </div>
       <Footer />
