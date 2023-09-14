@@ -5,7 +5,7 @@
   publish = ".next"
   command = "npm run build"
 
-[context.preview]
+[context.master]
   command = "npm run build"
   environment = { NODE_ENV = "development" }
   publish = ".next"
