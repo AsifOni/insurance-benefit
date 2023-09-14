@@ -1,13 +1,14 @@
 import { createClient } from 'contentful';
 
 const PAGE_CONTENT_TYPE_ID = 'page';
+const isPreview = window.location.href.includes("preview--insurance-benefits.netlify.app")
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 async function getEntries(content_type, queryParams) {
   const client = createClient({
     accessToken: IS_DEV ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN : process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_TOKEN,
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    host: IS_DEV ? 'preview.contentful.com' : 'cdn.contentful.com',
+    host: IS_DEV || isPreview ? 'preview.contentful.com' : 'cdn.contentful.com',
   });
 
   const entries = await client.getEntries({ content_type, ...queryParams, include: 10 });
