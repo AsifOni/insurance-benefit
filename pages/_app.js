@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
               );
             }
           },
-          ui: { opener: { hide: !(process.env.NODE_ENV === 'development') } },
+          ui: { opener: { hide: !(process.env.APP_ENV === 'development') } },
         }),
       ]}
       environment={process.env.NEXT_PUBLIC_NINETAILED_ENVIRONMENT ?? 'main'}
