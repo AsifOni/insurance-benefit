@@ -1,3 +1,4 @@
+import { COOKIE_NAME_PRERENDER_BYPASS } from "next/dist/server/api-utils";
 import { getPage } from "../../lib/api";
 
 export default async function handler(req, res) {
@@ -14,6 +15,20 @@ export default async function handler(req, res) {
   }
 
   res.setPreviewData({});
+
+  const headers = res.getHeader('Set-Cookie');
+  if (Array.isArray(headers)) {
+    res.setHeader(
+      'Set-Cookie',
+      headers.map((cookie) => {
+        if (cookie.includes(COOKIE_NAME_PRERENDER_BYPASS)) {
+          return cookie.replace('SameSite=Lax', 'SameSite=None; Secure');
+        }
+        return cookie;
+      }),
+    );
+  }
+
   const redirectSlug = page?.slug === '/' ? page?.slug : `/${page?.slug}`;
   res.redirect(redirectSlug);
 }
