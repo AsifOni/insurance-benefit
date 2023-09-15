@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const { params, preview } = context;
+  const { params, preview=false } = context;
   const slug = '/' + (params?.slug ?? ['']).join('/');
   const [page, allExperiences, allAudiences, experiments, navItems] = await Promise.all([
     getPage({

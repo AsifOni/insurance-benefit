@@ -7,9 +7,11 @@ export default async function handler(req, res) {
   }
 
   const slug = req.query.slug === '/' ? req.query.slug : `/${req.query.slug}`;
-  const page = await getPage({ slug });
+  console.log("****** slug", slug);
+  const page = await getPage({ slug, preview: true });
     
   // If the slug doesn't exist prevent preview mode from being enabled
+  console.log("****** Page", page);
   if (!page) {
     return res.status(401).json({ message: 'Invalid slug' });
   }
