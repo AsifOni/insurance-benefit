@@ -55,11 +55,11 @@ export const getStaticProps = async (context) => {
 };
 
 export default function ComposablePage({ page, navItems }) {
-  if (!page) {
+  const livePage = useContentfulLiveUpdates(page);
+
+  if (!livePage) {
     return null;
   }
-
-  const livePage = useContentfulLiveUpdates(page);
 
   return (
     <>
