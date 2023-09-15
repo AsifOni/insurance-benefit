@@ -53,7 +53,12 @@ function MyApp({ Component, pageProps }) {
   })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || ''}');`,
           }}
         />
-        <ContentfulLivePreviewProvider locale="en-US" enableLiveUpdates={true}>
+        <ContentfulLivePreviewProvider
+          locale="en-US"
+          enableLiveUpdates={true}
+          enableInspectorMode={false}
+          debugMode={true}
+        >
           <Component {...pageProps} />
         </ContentfulLivePreviewProvider>
       </SettingsProviderWrapper>
