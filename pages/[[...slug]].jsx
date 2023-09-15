@@ -1,3 +1,4 @@
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { Navbar } from '../components/Navbar.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { Footer } from '../components/Footer.jsx';
@@ -58,13 +59,15 @@ export default function ComposablePage({ page, navItems }) {
     return null;
   }
 
+  const livePage = useContentfulLiveUpdates(page);
+
   return (
     <>
-      <div data-sb-object-id={page?.id || '1'} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
+      <div data-sb-object-id={livePage?.id || '1'} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
         <Navbar navItems={navItems} />
 
         <main role="main" className="w-full flex-grow">
-          <BlockRenderer blocks={page?.sections || []} />
+          <BlockRenderer blocks={livePage?.sections || []} />
           {/* <UserProfile /> */}
         </main>
       </div>
