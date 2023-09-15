@@ -1,4 +1,5 @@
 import { Experience } from '@ninetailed/experience.js-next';
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { ComponentRegistry } from '../utils/registry.js';
 import { hasExperiences, parseExperiences } from '../lib/experiences.js';
 
@@ -7,6 +8,7 @@ const componentMap = ComponentRegistry();
 const ComponentRenderer = (props) => {
   const contentTypeId = props?.type;
   const Component = componentMap[contentTypeId];
+  const liveUpdateProps = useContentfulLiveUpdates(props);
 
   if (!Component) {
     console.warn(`${contentTypeId} can not be handled`);
@@ -15,7 +17,7 @@ const ComponentRenderer = (props) => {
 
   // eslint-disable-next-line
   // @ts-ignore
-  return <Component {...props} />;
+  return <Component {...liveUpdateProps} />;
 };
 
 const BlockRenderer = ({ blocks = [] }) => {
