@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@contentful/live-preview": "^2.9.6",
     "@ninetailed/experience.js-next": "^4.2.3",
     "@ninetailed/experience.js-plugin-google-tagmanager": "^4.2.5",
     "@ninetailed/experience.js-plugin-preview": "^4.2.3",

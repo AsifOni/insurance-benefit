@@ -39,6 +39,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       page,
+      preview: preview || false,
       ninetailed: {
         experiments,
         preview: {

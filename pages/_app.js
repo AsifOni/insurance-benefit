@@ -1,11 +1,12 @@
 import Script from 'next/script';
+import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react';
 import { NinetailedProvider } from '@ninetailed/experience.js-next';
 import { NinetailedPreviewPlugin } from '@ninetailed/experience.js-plugin-preview';
 import { NinetailedGoogleTagmanagerPlugin } from '@ninetailed/experience.js-plugin-google-tagmanager';
 import SettingsProviderWrapper from '../lib/SettingsProvider';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {  
   return (
     <NinetailedProvider
       /* required */
@@ -52,7 +53,9 @@ function MyApp({ Component, pageProps }) {
   })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || ''}');`,
           }}
         />
-        <Component {...pageProps} />
+        <ContentfulLivePreviewProvider locale="en-US" enableLiveUpdates={pageProps.preview}>
+          <Component {...pageProps} />
+        </ContentfulLivePreviewProvider>
       </SettingsProviderWrapper>
     </NinetailedProvider>
   );
