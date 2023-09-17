@@ -4,9 +4,8 @@ import { Footer } from '../components/Footer.jsx';
 import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments, getNavItems, mapEntry } from '../lib/api.js';
 import BlockRenderer from '../components/BlockRenderer.jsx';
 
-export const getStaticPaths = async () => {
-  const pages = await getPages({ preview: false });
-
+export const getStaticPaths = async () => {  
+  const pages = await getPages({ preview: false });  
   const paths = pages
     ?.filter((page) => {
       return page.fields.slug !== '/';
@@ -23,12 +22,16 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const { params, preview=false } = context;
+  const { params, preview = false } = context;  
   const slug = '/' + (params?.slug ?? ['']).join('/');
+  const contentLocation = slug.includes('mb') ? 'pageManitoba' : 'page';
+  console.log("contentLocation", contentLocation);
+  
   const [page, allExperiences, allAudiences, experiments, navItems] = await Promise.all([
     getPage({
       preview,
       slug,
+      location: contentLocation,
     }),
     getExperiments({ preview }),
     getNavItems(),

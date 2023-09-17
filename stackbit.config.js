@@ -93,10 +93,8 @@ const config = {
       .filter((d) => pageModels.includes(d.modelName))
       .map((document) => {
         const slug = getLocalizedFieldForLocale(document.fields.slug);
-        console.log('slug', slug);
         if (!slug.value) return null;
         const urlPath = '/' + slug.value.replace(/^\/+/, '');
-        console.log('urlPath', urlPath);
         return { stableId: document.id, urlPath, document, isHomePage: urlPath === '/' };
       })
       .filter(Boolean);
