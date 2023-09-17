@@ -1,8 +1,11 @@
 import { Hero as InsuranceHero } from 'ccgx-insurance';
 import { useNinetailed } from '@ninetailed/experience.js-next';
+// import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 
 export const Hero = (props) => {
   const { id, img = {}, personalization = {}, ...restProps } = props;
+  // console.log('props', props);
+  // const inspectorProps = useContentfulInspectorMode({ entryId: id })
   const { src, alt } = img;
   const { track } = useNinetailed();
   const handleEvent = async () => {

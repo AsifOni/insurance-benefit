@@ -1,11 +1,11 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import { Navbar } from '../components/Navbar.jsx';
-import { Footer } from '../components/Footer.jsx';
-import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments, getNavItems, mapEntry } from '../lib/api.js';
-import BlockRenderer from '../components/BlockRenderer.jsx';
+import { Navbar } from '../../components/Navbar.jsx';
+import { Footer } from '../../components/Footer.jsx';
+import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments, getNavItems, mapEntry } from '../../lib/api.js';
+import BlockRenderer from '../../components/BlockRenderer.jsx';
 
 export const getStaticPaths = async () => {
-  const pages = await getPages({ preview: false });
+  const pages = await getPages({ preview: false, location: 'pageManitoba' });
 
   const paths = pages
     ?.filter((page) => {
@@ -29,6 +29,7 @@ export const getStaticProps = async (context) => {
     getPage({
       preview,
       slug,
+      location: 'pageManitoba'
     }),
     getExperiments({ preview }),
     getNavItems(),
