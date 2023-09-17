@@ -1,11 +1,11 @@
 import { Hero as InsuranceHero } from 'ccgx-insurance';
 import { useNinetailed } from '@ninetailed/experience.js-next';
-// import { useContentfulInspectorMode } from '@contentful/live-preview/react';
+import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 
 export const Hero = (props) => {
   const { id, img = {}, personalization = {}, ...restProps } = props;
   // console.log('props', props);
-  // const inspectorProps = useContentfulInspectorMode({ entryId: id })
+  const inspectorProps = useContentfulInspectorMode({ entryId: id })
   const { src, alt } = img;
   const { track } = useNinetailed();
   const handleEvent = async () => {
@@ -13,13 +13,14 @@ export const Hero = (props) => {
   };
 
   return (
-    <div data-sb-object-id={id}>
+    <div data-sb-object-id={id}>      
       <InsuranceHero
         img={src}
         imgAltText={alt}
-        {...restProps}
         className="benefit-hero"
         sbDataAttr={{ heading: 'heading', body: 'body' }}
+        {...inspectorProps({ fieldId: 'heading' })}
+        {...restProps}
       >
         {personalization?.isPersonalization && (
           <button

@@ -2,6 +2,8 @@ import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react';
 import { NinetailedProvider } from '@ninetailed/experience.js-next';
 import { NinetailedPreviewPlugin } from '@ninetailed/experience.js-plugin-preview';
 import SettingsProviderWrapper from '../lib/SettingsProvider';
+import '@contentful/live-preview/style.css';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {  
@@ -38,7 +40,7 @@ function MyApp({ Component, pageProps }) {
         <ContentfulLivePreviewProvider
           locale="en-US"
           enableLiveUpdates={pageProps.preview}
-          enableInspectorMode={false}
+          enableInspectorMode={true}
           debugMode={true}
         >
           <Component {...pageProps} />

@@ -1,3 +1,4 @@
+import { ContentfulLivePreview } from '@contentful/live-preview';
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { Navbar } from '../components/Navbar.jsx';
 import { Footer } from '../components/Footer.jsx';
