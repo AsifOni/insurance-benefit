@@ -1,11 +1,19 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
 import { Navbar } from '../components/Navbar.jsx';
 import { Footer } from '../components/Footer.jsx';
-import { getPages, getPage, getAllExperiences, getAllAudiences, getExperiments, getNavItems, mapEntry } from '../lib/api.js';
+import {
+  getPages,
+  getPage,
+  getAllExperiences,
+  getAllAudiences,
+  getExperiments,
+  getNavItems,
+  mapEntry,
+} from '../lib/api.js';
 import BlockRenderer from '../components/BlockRenderer.jsx';
 
-export const getStaticPaths = async () => {  
-  const pages = await getPages({ preview: false });  
+export const getStaticPaths = async () => {
+  const pages = await getPages({ preview: false });
   const paths = pages
     ?.filter((page) => {
       return page.fields.slug !== '/';
@@ -22,16 +30,12 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const { params, preview = false } = context;  
+  const { params, preview = false } = context;
   const slug = '/' + (params?.slug ?? ['']).join('/');
-  const contentLocation = slug.includes('mb') ? 'pageManitoba' : 'page';
-  console.log("contentLocation", contentLocation);
-  
   const [page, allExperiences, allAudiences, experiments, navItems] = await Promise.all([
     getPage({
       preview,
       slug,
-      location: contentLocation,
     }),
     getExperiments({ preview }),
     getNavItems(),
@@ -57,17 +61,20 @@ export const getStaticProps = async (context) => {
 
 export default function ComposablePage({ page, navItems }) {
   const livePage = useContentfulLiveUpdates(page);
-  
+
   if (!livePage) {
     return null;
   }
 
-  const newPage = {...livePage};
+  const newPage = { ...livePage };
   const serializedPage = mapEntry(newPage);
-  
+
   return (
     <>
-      <div data-sb-object-id={serializedPage?.id || '1'} className="w-full flex flex-col sm:flex-row flex-wrap flex-grow">
+      <div
+        data-sb-object-id={serializedPage?.id || '1'}
+        className="w-full flex flex-col sm:flex-row flex-wrap flex-grow"
+      >
         <Navbar navItems={navItems} />
 
         <main role="main" className="w-full flex-grow">
