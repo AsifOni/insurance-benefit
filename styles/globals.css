@@ -17,3 +17,7 @@ border-top: #e4e4e4 1px solid;
 .ccg-insurance-three-col-card>div {
     flex-wrap: nowrap;
 }
+
+.caa-insurance-card .card-header img, svg {
+    margin-bottom: 0 !important;
+}
